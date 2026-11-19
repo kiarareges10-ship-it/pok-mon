@@ -2,6 +2,11 @@
     <head>
     </head>
     <style>
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
         .cartao{
             position: relative;
             display:flex;
@@ -10,7 +15,7 @@
             border: 1px solid gray;
             border-radius: 5px;
             padding: 5px;
-            front-family: 'Segoe UI';
+            font-family: 'Segoe UI';
             color: rgb(164, 79, 190)
 
         }
@@ -24,10 +29,14 @@
         }
     </style>
     <body>
+        <div class="grid">
+        {% for item in numeros %}
         <div class="cartao">
-          <h1>{{nome}}</h1>
-          <h2>#{{numero}}</h2>
-          <img src={{imagem}}>
+          <img src={{imagens[loop.index0]}}>
+           <h2>#{{numeros[loop.index0]}}</h2>
+          <h1>{{nomes[loop.index0]}}</h1>
+        </div>
+        {%  endfor %}
         </div>
     </body>
 </html>
